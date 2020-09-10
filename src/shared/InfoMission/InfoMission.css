@@ -1,0 +1,6 @@
+.reward-mission, .info-mission, .condition-mission, .description-mission{
+  float: left;
+  width: 100%;
+  margin-top: 1px;
+  /* border-bottom: 4px dashed white; */
+}

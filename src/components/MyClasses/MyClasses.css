@@ -1,0 +1,10 @@
+.my-classes-card.main-card > .my-classes > .my-classes-list > .my-class{
+  display: flex;
+  width: 98%;
+  flex-direction: row;
+}
+
+.my-classes-card.main-card > .my-classes > .my-classes-list > .my-class > button.btn-class{
+  width: 100%;
+  margin-right: 10px;
+}

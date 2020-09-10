@@ -1,0 +1,49 @@
+.container-range{
+  float: left;
+  width: 100%;
+  border-top: 6px solid #999;
+  border-left: 6px solid #999;
+  border-right: 6px solid #ddd;
+  border-bottom: 6px solid #ddd;
+}
+.slider{
+  float: left;
+  border: none !important;
+  width: 100%;
+  /* border-top: 4px solid #999; */
+  border-left: 4px solid #999;
+  border-right: 4px solid #ddd;
+  /* border-bottom: 4px solid #ddd; */
+  margin: 0 !important;
+}
+.slider.nes-progress{
+  height: 41px !important;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 48px;
+  background: #444;
+  cursor: pointer;
+  border-top: 4px solid #333;
+  border-left: 4px solid #333;
+  border-bottom: 4px solid #666;
+  border-right: 4px solid #666;
+  
+  /* background: #108de0;
+  cursor: pointer;
+  
+  border-top: 4px solid #006bb3;
+  border-left: 4px solid #006bb3;
+  border-bottom: 4px solid #3aa7ef;
+  
+  border-right: 4px solid #3aa7ef; */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 49px;
+  background: #4CAF50;
+  cursor: pointer;
+}

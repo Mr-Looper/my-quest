@@ -1,0 +1,62 @@
+.menu-game{
+  width: 100%;
+  float: left;
+  position: relative;
+}
+
+.menu-game > .nes-container{
+  padding: 1px !important;
+  display: flex;
+  flex-direction: row;
+}
+
+.nes-squirtle{
+  width: 110px !important;
+}
+
+.item-menu{
+  width: 100%;
+  float: inherit;
+  height: 92px;
+}
+
+.item-menu.active{
+  background-color: #209cee;
+}
+
+.menu-game .item-menu:not(:nth-child(1)){
+  border-left: 4px solid white;
+  /* border-right: 4px solid white; */
+}
+
+.icon-item-menu{
+  width: 100%;
+  text-align: center;
+  float: inherit;
+  height: 60px;
+  top: 2px;
+  position: relative;
+}
+
+.icon-item-menu i.nes-squirtle{
+  top: -15px;
+  transform: scale(0.5);
+}
+
+.icon-item-menu i.nes-icon{
+  top: 10px;
+}
+
+.text-item-menu{
+  width: 100%;
+  text-align: center;
+}
+
+.text-item-menu label{
+  font-size: 12px !important;
+  color: #212529;
+  text-shadow: -1px 1px 0 white, 
+                1px 1px 0 white, 
+                1px -1px 0 white,
+              -1px -1px 0 white;
+}

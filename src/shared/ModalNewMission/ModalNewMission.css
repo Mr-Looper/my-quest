@@ -1,0 +1,28 @@
+.nes-text-container{
+  float: left;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-top: 4px dashed white;
+  border-bottom: 4px dashed white;
+  padding-top: 10px;
+}
+
+.days-selection{
+  float:left;
+  width: 100%;
+  margin-left: 20px;
+}
+
+.days-selection label{
+  margin-right: 8px;
+}
+.config-date{
+  float: left;
+  width: 100%;
+  margin-top: 15px !important;
+}
+.aditional-info{
+  float: left;
+  width: 100%;
+  margin-top: 15px !important;
+}

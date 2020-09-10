@@ -1,0 +1,458 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
+
+html, body, pre, code, kbd, samp {
+  font-family: "Press Start 2P";
+
+}
+#root{
+  background: #212529;
+}
+
+.game-card{
+  /* height: 800px !important; */
+  height: 100vh;
+  width: 100%;
+  min-width: 450px !important;
+  max-width: 860px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  background: #212529;
+}
+
+.game-card > .main-card {
+  /* top: 108px !important; */
+  position: relative;
+  overflow-y: scroll;
+  height: calc(100vh - 110px);
+  width: 100%;
+  float: left;
+}
+
+.game-card > .main-card > .nes-container{
+  min-height: calc(100% - 8px);
+}
+
+.icon-red::before{
+  color: red !important;
+}
+
+.separator-dashed{
+  width: 100%;
+  border-bottom: 4px dashed white;
+  margin: 10px 0;
+}
+
+.list-main-skill{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.list-main-skill .element-main-skill{
+  padding: 5px;
+  width: 340px;
+  margin-top: 10px;
+  margin-left: 50px;
+  color: white;
+}
+.element-sub-skill
+/* .info-main-skill,  */
+, .info-main-skill > span
+, .info-sub-skill
+, .info-sub-skill > span
+{
+  width: 100%;
+  float: left;
+}
+.container-sub-skill{
+  display: inline-block;
+}
+
+.is-dark{
+  background-color: #212529;
+}
+
+.border-white{
+  border-color: white !important;
+}
+
+.is-dark .nes-btn, .is-dark .nes-progress{
+  border-image-source: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8" ?><svg version="1.1" width="5" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M2 1 h1 v1 h-1 z M1 2 h1 v1 h-1 z M3 2 h1 v1 h-1 z M2 3 h1 v1 h-1 z" fill="rgb(255,255,255)" /></svg>')
+}
+
+.nes-container.with-title{
+  padding: 1.5rem 1rem;
+}
+
+.nes-container.with-title .title{
+  margin-left: 1rem !important;
+}
+.nes-badge.is-splited span.is-white:last-child {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  color: #212529;
+  text-align: center;
+  background-color: #fff;
+  right: 0;
+  box-shadow: 0 0.5em #fff, 0 -0.5em #fff, 0.5em 0 #fff, 0 0 #fff;
+}
+.nes-badge.is-splited span.is-white:first-child {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  color: #212529;
+  text-align: center;
+  background-color: #fff;
+  left: 0;
+  box-shadow: 0 0.5em #fff, 0 -0.5em #fff, 0 0 #fff, -0.5em 0 #fff;
+}
+
+.nes-container{
+  float: left;
+  width: -webkit-fill-available;
+}
+
+.radio-column{
+  display: flex;
+  flex-direction: column;
+  float: left;
+  width: 100%;
+}
+
+.react-datepicker{
+  font-family: "Press Start 2P" !important;
+  border: 4px solid white !important;
+  border-radius: 0 !important;
+  /* width: 110%; */
+}
+.react-datepicker__month-container{
+  /* width: 100% !important; */
+}
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name{
+  width: 2rem !important;
+}
+.radio-column label.radio-selection{
+  width: 100%;
+}
+.react-datepicker__current-month{
+  color: white !important;
+}
+.react-datepicker__header{
+  border-radius: 0 !important;
+  background-color: #212529 !important;
+}
+.react-datepicker__day-name{
+  color: white !important;
+}
+.react-datepicker-wrapper{
+  width: 100%;
+}
+.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range{
+  background-color: #209cee !important;
+  border-radius: 0 !important;
+  width: 2.466rem !important;
+  padding: 0.166rem !important;
+  margin: 0 !important;
+}
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name{
+  width: 2.466rem !important;
+  padding: 0.166rem !important;
+  margin: 0 !important;
+}
+.react-datepicker__day:hover, .react-datepicker__month-text:hover, .react-datepicker__quarter-text:hover, .react-datepicker__year-text:hover{
+  border-radius: 0 !important;
+}
+.react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected, .react-datepicker__year-text--keyboard-selected{
+  border-radius: 0 !important;
+  /* background-color: #108de0 !important; */
+}
+.current-missions{
+  float: left;
+  padding-top: 15px;
+}
+.nes-btn.is-error{
+  background-color: #e76e55;
+  color: white;
+}
+.nes-btn.is-success{
+  background-color: #92cc41;
+  color: white;
+}
+.nes-btn.is-primary{
+  background-color: #209cee;
+  color: white;
+}
+:focus {
+  /* outline-color: -webkit-focus-ring-color; */
+  outline-style: solid;
+  outline-width: 1px;
+}
+
+.nes-text-forced.is-error, 
+.nes-text-forced.is-error > span,
+.nes-text-forced.is-error > span::before
+{
+  color: #e76e55 !important;
+}
+.nes-text-forced.is-success, 
+.nes-text-forced.is-success > span,
+.nes-text-forced.is-success > span::before
+{
+  color: #92cc41 !important;
+}
+.nes-text-forced.is-warning, 
+.nes-text-forced.is-warning > span,
+.nes-text-forced.is-warning > span::before
+{
+  color: #f7d51d !important;
+}
+.nes-text-forced.is-default, 
+.nes-text-forced.is-default > span,
+.nes-text-forced.is-default > span::before
+{
+  color: #fff !important;
+}
+.nes-text-forced.is-primary, 
+.nes-text-forced.is-primary > span,
+.nes-text-forced.is-primary > span::before
+{
+  color: #209cee !important;
+}
+.nes-text-forced.is-disabled, 
+.nes-text-forced.is-disabled > span,
+.nes-text-forced.is-disabled > span::before
+{
+  color: #d3d3d3 !important;
+}
+.nes-text-forced.is-orange, 
+.nes-text-forced.is-orange > span,
+.nes-text-forced.is-orange > span::before
+{
+  color: #fd9429 !important;
+}
+.nes-text-forced.is-blue, 
+.nes-text-forced.is-blue > span,
+.nes-text-forced.is-blue > span::before
+{
+  color: #2931fd !important;
+}
+.nes-text-forced.is-dark, 
+.nes-text-forced.is-dark > span,
+.nes-text-forced.is-dark > span::before
+{
+  color: #212529 !important;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+.nes-text-forced.is-violet, 
+.nes-text-forced.is-violet > span,
+.nes-text-forced.is-violet > span::before
+{
+  color: #8532c5 !important;
+}
+.nes-text-forced.is-oxide, 
+.nes-text-forced.is-oxide > span,
+.nes-text-forced.is-oxide > span::before
+{
+  color: #651515 !important;
+}
+.nes-text-forced.is-pink, 
+.nes-text-forced.is-pink > span,
+.nes-text-forced.is-pink > span::before
+{
+  color: #f67dff !important;
+}
+.nes-text-forced.is-kalipso, 
+.nes-text-forced.is-kalipso > span,
+.nes-text-forced.is-kalipso > span::before
+{
+  color: #29fdc1 !important;
+}
+
+
+
+.nes-btn.is-orange{
+  background-color: #fd9429;
+  color: white;
+}
+.nes-btn.is-orange:hover{
+  background-color: #fe7211;
+  color: white;
+}
+.nes-btn.is-orange::after{
+  box-shadow: inset -4px -4px #c76706
+}
+.nes-btn.is-orange:hover::after{
+  box-shadow: inset -6px -6px #c76706
+}
+.nes-btn.is-orange:active:not(.is-disabled)::after{
+  box-shadow: inset 4px 4px #c76706
+}
+
+
+.nes-btn.is-blue{
+  background-color: #2931fd;
+  color: white;
+}
+.nes-btn.is-blue:hover{
+  background-color: #1a21d4;
+  color: white;
+}
+.nes-btn.is-blue::after{
+  box-shadow: inset -4px -4px #2026c1
+}
+.nes-btn.is-blue:hover::after{
+  box-shadow: inset -6px -6px #040bad
+}
+.nes-btn.is-blue:active:not(.is-disabled)::after{
+  box-shadow: inset 4px 4px #040bad
+}
+
+
+.nes-btn.is-dark{
+  background-color: #212529;
+  color: white;
+}
+.nes-btn.is-dark:hover{
+  background-color: #0f1112;
+  color: white;
+}
+.nes-btn.is-dark::after{
+  box-shadow: inset -4px -4px #131618
+}
+.nes-btn.is-dark:hover::after{
+  box-shadow: inset -6px -6px #000
+}
+.nes-btn.is-dark:active:not(.is-disabled)::after{
+  box-shadow: inset 4px 4px #000
+}
+
+
+.nes-btn.is-violet{
+  background-color: #8532c5;
+  color: white;
+}
+.nes-btn.is-violet:hover{
+  background-color: #702aa6;
+  color: white;
+}
+.nes-btn.is-violet::after{
+  box-shadow: inset -4px -4px #6f16b5
+}
+.nes-btn.is-violet:hover::after{
+  box-shadow: inset -6px -6px #521780
+}
+.nes-btn.is-violet:active:not(.is-disabled)::after{
+  box-shadow: inset 4px 4px #521780
+}
+
+
+.nes-btn.is-oxide{
+  background-color: #651515;
+  color: white;
+}
+.nes-btn.is-oxide:hover{
+  background-color: #460f0f;
+  color: white;
+}
+.nes-btn.is-oxide::after{
+  box-shadow: inset -4px -4px #350a0a
+}
+.nes-btn.is-oxide:hover::after{
+  box-shadow: inset -6px -6px #220404
+}
+.nes-btn.is-oxide:active:not(.is-disabled)::after{
+  box-shadow: inset 4px 4px #220404
+}
+
+
+.nes-btn.is-pink{
+  background-color: #f67dff;
+  color: black;
+}
+.nes-btn.is-pink:hover{
+  background-color: #e172e9;
+  color: black;
+}
+.nes-btn.is-pink::after{
+  box-shadow: inset -4px -4px #c864cf
+}
+.nes-btn.is-pink:hover::after{
+  box-shadow: inset -6px -6px #bc5fc3
+}
+.nes-btn.is-pink:active:not(.is-disabled)::after{
+  box-shadow: inset 4px 4px #bc5fc3
+}
+
+.nes-btn.is-kalipso{
+  background-color: #29fdc1;
+  color: black;
+}
+.nes-btn.is-kalipso:hover{
+  background-color: #24daa7;
+  color: black;
+}
+.nes-btn.is-kalipso::after{
+  box-shadow: inset -4px -4px #21cb9b
+}
+.nes-btn.is-kalipso:hover::after{
+  box-shadow: inset -6px -6px #18a67e
+}
+.nes-btn.is-kalipso:active:not(.is-disabled)::after{
+  box-shadow: inset 4px 4px #18a67e
+}
+
+.container-add-button{
+  padding-bottom: 10px;
+  float: right;
+  margin-right: 10px;
+}
+
+.missions{
+  width: 100% !important;
+  float: left;
+}
+
+.nes-field{
+  width: 100%;
+  float: left;
+  margin-bottom: 10px !important;
+}
+.margin-top--5px{
+  margin-top: 5px !important;
+}
+
+.margin-top--10px{
+  margin-top: 10px !important;
+}
+
+.margin-top--15px{
+  margin-top: 15px !important;
+}
+
+.margin-top--20px{
+  margin-top: 20px !important;
+}
+
+.margin-bottom--5px{
+  margin-bottom: 5px !important;
+}
+
+.margin-bottom--10px{
+  margin-bottom: 10px !important;
+}
+
+.margin-bottom--15px{
+  margin-bottom: 15px !important;
+}
+
+.margin-bottom--20px{
+  margin-bottom: 20px !important;
+}
+
+.margin-top--25px{
+  margin-top: 25px;
+}

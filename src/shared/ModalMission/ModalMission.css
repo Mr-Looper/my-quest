@@ -1,0 +1,10 @@
+.nes-list.is-circle.is-dark li::before{
+  color: white !important;
+}
+.lists{
+  float: left;
+  width: 100%;
+  padding-top: 15px;
+  border-top: 4px dashed white;
+  margin-top: 10px;
+}

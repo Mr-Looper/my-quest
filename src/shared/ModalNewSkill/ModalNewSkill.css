@@ -1,0 +1,14 @@
+.body-modal-new-skill{
+  float: left;
+  width: 100%;
+}
+
+.body-modal-new-skill .max-level{
+  width: 48% !important;
+  float: left !important;
+}
+
+.body-modal-new-skill .current-level{
+  width: 48% !important;
+  float: right !important;
+}

@@ -1,0 +1,30 @@
+.my-skills-filter{
+  float: left;
+  padding-bottom: 10px;
+  border-bottom: 4px white dashed;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.my-skills-filter-buttons{
+  padding-top: 10px;
+  float: right;
+}
+
+.my-skills-card{
+  height: 100%;
+  width: 100%;
+  float: left;
+}
+
+.hide-filter{
+  display: none;
+}
+
+.container-skill-buttons .btn-show-filters {
+  float: left;
+}
+
+.container-skill-buttons .btn-add-skill{
+  float: right;
+}
+

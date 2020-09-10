@@ -1,0 +1,73 @@
+
+.modal-container.open-modal{
+  position: fixed;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  flex-direction: column;
+  /* display: flex !important; */
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  -o-box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: auto;
+  top: 0;
+  overflow-y: auto;
+}
+
+.dialog-body{
+  width: 100%;
+  padding: 0px 15px 15px 15px;
+}
+
+.dialog-footer{
+  margin-top: 20px;
+  padding: 10px 0px;
+}
+
+.dialog-footer button{
+  float: right;
+}
+
+.footer-modal{
+  width: 100%;
+  float: right;
+  margin-top: 10px;
+}
+
+.footer-modal > .next-step{
+  float:right;
+}
+
+.footer-modal > .prev-step{
+  float:left;
+}
+
+.modal-container.open-modal .nes-dialog{
+  display: flex !important;
+  width: 90%;
+  max-width: 600px;
+  padding: 15px;
+  flex-direction: column;
+}
+
+.close-modal{
+  position: absolute;
+  right: 15px;
+  top: 3px;
+}
+.close-modal i.nes-icon.close{
+  transform: scale(1.5);
+}
+.close-modal i.nes-icon.close::before{
+  color: white !important;
+}

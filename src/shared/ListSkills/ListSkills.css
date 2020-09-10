@@ -1,0 +1,75 @@
+.skills .skill{
+  width: -webkit-fill-available !important;
+  padding: 10px;
+}
+
+.skills .skill.edit{
+  width: calc(100% - 60px) !important;
+}
+
+.skill-container{
+  width: 100%;
+  float: left;
+  margin-top: 20px;
+}
+.info-skill{
+  float: left;
+  margin: 5px;
+  padding: 5px;
+  border: 4px solid white;
+}
+.info-skill span:nth-child(1){
+  text-align: center;
+  width: 100%;
+  float: left;
+}
+.info-skill span:nth-child(3){
+  text-align: center;
+  float: left;
+  width: 100%;
+  display: flex;
+}
+.info-skill span:nth-child(3) .indicator-level{
+  margin: 0 auto;
+}
+
+.skill-details-footer{
+  float: right;
+  width: 100%;
+}
+
+.skill-details-footer > button{
+  float: right;
+}
+
+.skill-config{
+  float: left;
+  width: 100%;
+  border-top: 4px dashed white;
+  border-bottom: 4px solid white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.skill-show-details{
+  display: block;
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  border: 4px solid white;
+  padding: 5px;
+  user-select: none;
+}
+.skill-show-details .icon-show-details{
+  font-size: 25px;
+  top: 1px;
+  right: 3px;
+  position: absolute;
+}
+.skill-show-details .icon-show-details.open{
+  transform: rotate(90deg);
+  right: 8px;
+}

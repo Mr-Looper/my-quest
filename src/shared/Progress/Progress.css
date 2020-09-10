@@ -1,0 +1,31 @@
+.nes-progress{
+  width: 98%;
+}
+
+.progress-bar{
+  width: 100%;
+}
+
+.is-dark .nes-progress{
+  background-color: #212529;
+}
+
+.progress-bar{
+  float: left;
+  padding-top: 10px;
+}
+.progress-bar .min, .progress-bar .max{
+  width: 50%;
+}
+.progress-bar .min, .progress-bar .next{
+  float: left;
+  text-align: left;
+}
+.progress-bar .max{
+  float: right;
+  text-align: right;
+}
+
+.progress-bar .next{
+  font-size: 15px;
+}

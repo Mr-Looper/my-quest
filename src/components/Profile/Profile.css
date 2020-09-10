@@ -1,0 +1,6 @@
+.profile-card{
+  float: left;
+  width: 100%;
+  height: calc(100vh - 108px);
+}
+
