@@ -13,8 +13,7 @@ const MyMissions = ({ state }) => {
     api.getTypeMissions()
   }, [])
   const { myMissions, statusMissions, typeMissions } = state
-  const { api } = useContext(FirebaseContext);
-  const title = 'New mission'
+  const { api } = useContext(FirebaseContext)
   const dataModal = { title: 'New mission', initialData: { startFrom: 'mission' } }
   const dispatch = useDispatch()
   let [listMissions, setListMissions] = useState(myMissions)
@@ -47,16 +46,6 @@ const MyMissions = ({ state }) => {
       handleSelectFilter('type', 'all')
       handleSelectFilter('status_id', 'all')
     }
-  }
-  const handleShowDetails = (position) => {
-    const list = myMissions.filter((mission, index) => {
-      if(index != position){
-        mission.showDetails = false
-      }
-      return mission
-    })
-    list[position].showDetails = !list[position].showDetails
-    setListMissions(list)
   }
   useEffect(() => {
     if (myMissions) {
@@ -91,7 +80,7 @@ const MyMissions = ({ state }) => {
           </div>
         </div>
         {listMissions.length > 0?
-          <ListMissions missions={listMissions} callbackShowDetails={(position) => handleShowDetails(position)}/>
+          <ListMissions missions={listMissions}/>
         : ''}
       </div>
     </div>

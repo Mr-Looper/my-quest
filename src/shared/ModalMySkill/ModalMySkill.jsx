@@ -31,16 +31,6 @@ const ModalMySkill = (props) => {
     dispatch(hideModal('MODAL_MY_SKILL'))
     setTimeout(() => dispatch(showModal('MODAL_NEW_SKILL', { skill: skill, title: 'Modify skill', update: true })), 0)
   }
-  const handleShowDetails = (position) => {
-    const list = listMissions.filter((mission, index) => {
-      if(index !== position){
-        mission.showDetails = false
-      }
-      return mission
-    })
-    list[position].showDetails = !list[position].showDetails
-    setListMissions(list)
-  }
   useEffect(() => {
     if (myMissions) {
       const list = myMissions.filter(_mission => {
@@ -67,7 +57,7 @@ const ModalMySkill = (props) => {
             <div>
               <div className="separator-dashed"></div>
               <p className="title">Current missions</p>
-              <ListMissions missions={listMissions} callbackShowDetails={(position) => handleShowDetails(position)}/>
+              <ListMissions missions={listMissions}/>
             </div>
             : ''}
         </div>

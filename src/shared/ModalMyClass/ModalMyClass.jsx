@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 
 const ModalMyClass = (props) => {
   const { state } = props
-  const { myMissions } = state
+  const { myMissions, mySkills } = state
   const [listMissions, setListMissions] = useState()
   const handleClickViewMore = () => {
     props.history.push("/missions");
@@ -24,9 +24,21 @@ const ModalMyClass = (props) => {
   // ]
   useEffect(() => {
     if(myMissions && myMissions.length > 0){
-      setListMissions(myMissions)
+      const _listIdsSkill = mySkills.filter(_skill => _skill.class_id === myClass.id).map(_skill => _skill.id)
+      const _list = myMissions.filter(_mission => {
+        // Filtrar las misiones que estén involucradas con la clase directamente o mediante skill
+        if(_mission.skill){
+          return _mission.skill.id.findIndex(_id => _listIdsSkill.findIndex(_skillId => _skillId === _id) !== -1 ) !== -1
+        }else{
+          return false
+        }
+      })
+      // newList.map()
+      // const _list = myMissions.map(_mission => {
+      // })
+      setListMissions(_list)
     }
-  }, [myMissions])
+  }, [myMissions, mySkills, myClass.id])
   return (
     <div>
       <Modal title={myClass.name} layer={layer} callbackCloseModal={() => dispatch(hideModal('MODAL_MISSION'))} close="Close">
@@ -42,9 +54,9 @@ const ModalMyClass = (props) => {
 
 export default connect(
   (state, ownProps) => {
-    const { myMissions } = state
+    const { myMissions, mySkills } = state
     return {
-      state: { myMissions }
+      state: { myMissions, mySkills }
     }
   }
     // ({ post: state.postsById[ownProps.postId] })
