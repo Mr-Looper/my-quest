@@ -39,7 +39,9 @@ export default ({ children }) => {
         getSkill,
         getStatusMissions,
         getTypeMissions,
-        updateSkill
+        updateSkill,
+        createSpecializationClass,
+        updateSpecializationClass,
       }
     }
   }
@@ -131,6 +133,25 @@ export default ({ children }) => {
         dispatch(setData(([{...response.data}]), 'UPDATE_DATA_SKILLS'))
         // getSkills()
         dispatch(showModal('MODAL_MY_SKILL', { skill: {...response.data} }))
+      })
+      .catch(err => console.error(err))
+  }
+
+  function createSpecializationClass(class_id, data){
+    axios
+      .post(`${firebaseConfig.databaseURL}/class/${class_id}/specialization.json`, data)
+      .then(response => {
+        console.log(response.data)
+        dispatch(setData(({list: [{...data, id: response.data.name}], class_id: class_id}), 'UPDATE_SPECIALIZATION_CLASS'))
+      })
+      .catch(err => console.error(err))
+  }
+  function updateSpecializationClass(class_id, subclass_id, data){
+    axios
+      .put(`${firebaseConfig.databaseURL}/class/${class_id}/specialization/${subclass_id}.json`, data)
+      .then(response => {
+        console.log(response.data)
+        dispatch(setData(({list: [{...response.data}], class_id: class_id}), 'UPDATE_SPECIALIZATION_CLASS'))
       })
       .catch(err => console.error(err))
   }

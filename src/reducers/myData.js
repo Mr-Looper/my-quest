@@ -30,8 +30,22 @@ function formatClassesData(classes){
         color: classes[property].color,
         name: classes[property].name,
         level: classes[property].level,
-        specialization: classes[property].specialization,
+        specialization: formatSpecData(classes[property].specialization),
         progress: calcLevelXp(classes[property])
+      })
+    }
+  }
+  return arr
+}
+
+function formatSpecData(specs){
+  let arr = []
+  for (let property in specs) {
+    if (specs.hasOwnProperty(property)) {
+      arr.push({
+        id: property,
+        color: specs[property].color,
+        name: specs[property].name
       })
     }
   }
@@ -91,6 +105,29 @@ function formatMissionsData(missions){
   return arr
 }
 
+function updateSpecializationClass(specializations, class_id, list){
+  console.log(specializations, class_id, list)
+  let _list = [...list]
+  const index = _list.findIndex(_class => _class.id === class_id )
+  specializations.map(_spec => {
+    const indexSpec = _list[index].specialization.findIndex(_currentSpec => _currentSpec.id === _spec.id)
+    if(indexSpec !== -1){
+      _list[index].specialization[indexSpec] = {..._spec}
+    }else{
+      if(_list[index].specialization){
+        _list[index].specialization.push({..._spec})
+      }else{
+        _list[index] = {
+          ... _list[index],
+          specialization: [{..._spec}]
+        }
+      }
+      _list[index].specialization =  _list[index].specialization.filter(_spec => !!_spec.id)
+    }
+  })
+  return _list
+}
+
 
 function myData(state = {}, action) {
   switch (action.type) {
@@ -105,6 +142,8 @@ function myClasses(state = {}, action) {
   switch (action.type) {
     case 'GET_DATA_CLASSES':
       return formatClassesData({ ...action.data })
+    case 'UPDATE_SPECIALIZATION_CLASS':
+      return updateSpecializationClass(action.data.list, action.data.class_id, [...state])
     default:
       return state
   }

@@ -23,7 +23,7 @@ const _showSubclassById = (idClass, idSubclass, list) => {
   }
 }
 const ModalMySkill = (props) => {
-  const { layer, skill, state } = props
+  const { layer, skill, state, enableModifySkill } = props
   const { myClasses, myMissions } = state
   let [listMissions, setListMissions] = useState([])
   const dispatch = useDispatch()
@@ -51,8 +51,9 @@ const ModalMySkill = (props) => {
           <div>{skill.description || 'No description'}</div><br></br>
           <div>Class: { _showClassById(skill.class_id, myClasses) }</div>
           <div>Specialization: { _showSubclassById(skill.class_id, skill.subclass_id, myClasses) }</div>
-          
+          {enableModifySkill? 
           <button className="nes-btn is-primary next-step" onClick={() => handleModifySkill()}>Modify</button>
+          : ''}
             {listMissions && listMissions.length > 0?
             <div>
               <div className="separator-dashed"></div>

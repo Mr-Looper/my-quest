@@ -10,7 +10,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 
 const ListSkills = (props) => {
-  const { skills, state } = props
+  const { skills, state, enableShowModal, enableModifySkill } = props
   const { myClasses } = state
   const [listSkills, setListSkills] = useState([])
   const dispatch = useDispatch()
@@ -69,9 +69,11 @@ const ListSkills = (props) => {
               </div>
               {_spec.skills && _spec.skills.length > 0?
                 <ul className="container-sub-skill nes-list is-circle is-dark">
-                  {_spec.skills.map((_skill, skillIndex) => 
-                    <li key={`skill-${classIndex}-${specializationIndex}-${skillIndex}`} className="element-sub-skill"
-                    onClick={() => dispatch(showModal('MODAL_MY_SKILL', {skill: _skill}))}
+                  {_spec.skills.map((_skill, skillIndex) =>
+                    <li key={`skill-${classIndex}-${specializationIndex}-${skillIndex}`} className={`element-sub-skill ${enableShowModal? 'cursor--pointer' : ''}`}
+                    onClick={enableShowModal? 
+                      () => dispatch(showModal('MODAL_MY_SKILL', {skill: _skill, enableModifySkill: enableModifySkill })) :
+                      () => false}
                     >
                       <div className="info-sub-skill">
                         <span htmlFor={`indicator-${classIndex}-${specializationIndex}-${skillIndex}`}

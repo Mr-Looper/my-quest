@@ -1,10 +1,53 @@
-.my-classes-card.main-card > .my-classes > .my-classes-list > .my-class{
+.my-classes-card.main-card > .my-classes > .my-classes-list > .container-specialization > .my-class{
   display: flex;
   width: 98%;
   flex-direction: row;
 }
 
-.my-classes-card.main-card > .my-classes > .my-classes-list > .my-class > button.btn-class{
+.my-classes-card.main-card > .my-classes > .my-classes-list > .container-specialization > .my-class > button.btn-class{
   width: 100%;
   margin-right: 10px;
+}
+.container-list{
+  width: 100%;
+  float: left;
+  display: flex;
+  flex-direction: column;
+}
+.container-list .list-classes{
+  width: min-content;
+  margin: 0 auto;
+}
+.my-class-specializations{
+  width: 100%;
+  float: left;
+  margin-bottom: 15px;
+}
+.my-class-specializations button{
+  margin: 0 auto;
+}
+
+.list-classes li{
+  width: 350px;
+  float: left;
+  line-height: 40px;
+}
+
+
+.list-classes li .section-text{
+  width: 30%;
+  float: right;
+}
+.list-classes li .nes-field{
+  line-height: initial;
+  width: calc(100% - 50px);
+}
+
+.list-classes li .section-buttons{
+  /* width: 30%; */
+  float: right;
+}
+
+.list-classes li .section-buttons span{
+  float: right;
 }

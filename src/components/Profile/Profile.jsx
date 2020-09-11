@@ -47,7 +47,7 @@ const Profile = ({ state }) => {
     // }
   }, [myData, myMissions, mySkills])
   const listSkills =  skills && skills.length > 0 ? 
-    (<ListSkills skills={skills} mainClass={user.class_id}
+    (<ListSkills skills={skills} mainClass={user.class_id} enableShowModal={true}
       // callbackShowDetails={(position) => handleShowDetails(position)}
       >
     </ListSkills>) : ''

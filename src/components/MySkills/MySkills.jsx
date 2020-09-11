@@ -87,7 +87,7 @@ const MySkills = ({ state }) => {
           </div>
         </div>
         {listSkills.length > 0? 
-          <ListSkills skills={listSkills}>
+          <ListSkills skills={listSkills} enableShowModal={true} enableModifySkill={true}>
           </ListSkills>
           : ''}
       </div>
