@@ -59,9 +59,10 @@ function formatSkillsData(skills){
 
 function updateSkills(skills, list){
   let _localList = [...list]
-  _localList = skills.map(_updSkill => {
+  skills = skills.map(_updSkill => {
     const index = _localList.findIndex(_skill => _updSkill.id === _skill.id)
-    return _localList[index] = {..._updSkill}
+    _localList[index] = {..._updSkill}
+    return {..._updSkill}
   })
   return _localList
 }

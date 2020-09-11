@@ -25,12 +25,16 @@ const Profile = ({ state }) => {
   const dispatch = useDispatch()
   useEffect(() => {
     if(myData){
+      setUser({})
+      setSkills([])
       setUser(myData)
       if(mySkills && mySkills.length > 0){
-        const list = mySkills.filter(_skills => {
-          return user.class_id === _skills.class_id
-        })
-        setSkills(list)
+        setTimeout(() => { 
+          const list = mySkills.filter(_skills => {
+            return myData.class_id === _skills.class_id
+          })
+          setSkills(list)
+        }, 0)
       }
     }
     // if(myMissions && myMissions.length > 0){
@@ -42,7 +46,6 @@ const Profile = ({ state }) => {
     //   sections.specializedTitles = myTitles.filter(title => !title.permanent)
     // }
   }, [myData, myMissions, mySkills])
-  console.log(skills)
   const listSkills =  skills && skills.length > 0 ? 
     (<ListSkills skills={skills} mainClass={user.class_id}
       // callbackShowDetails={(position) => handleShowDetails(position)}
