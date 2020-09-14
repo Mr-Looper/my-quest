@@ -42,6 +42,7 @@ export default ({ children }) => {
         updateSkill,
         createSpecializationClass,
         updateSpecializationClass,
+        deleteSpecializationClass
       }
     }
   }
@@ -142,6 +143,7 @@ export default ({ children }) => {
       .post(`${firebaseConfig.databaseURL}/class/${class_id}/specialization.json`, data)
       .then(response => {
         console.log(response.data)
+        // getClasses()
         dispatch(setData(({list: [{...data, id: response.data.name}], class_id: class_id}), 'UPDATE_SPECIALIZATION_CLASS'))
       })
       .catch(err => console.error(err))
@@ -151,11 +153,22 @@ export default ({ children }) => {
       .put(`${firebaseConfig.databaseURL}/class/${class_id}/specialization/${subclass_id}.json`, data)
       .then(response => {
         console.log(response.data)
+        // getClasses()
         dispatch(setData(({list: [{...response.data}], class_id: class_id}), 'UPDATE_SPECIALIZATION_CLASS'))
       })
       .catch(err => console.error(err))
   }
-  
+  function deleteSpecializationClass(class_id, subclass_id){
+    
+    axios
+      .delete(`${firebaseConfig.databaseURL}/class/${class_id}/specialization/${subclass_id}.json`)
+      .then(response => {
+        console.log(response.data)
+        // getClasses()
+        dispatch(setData(({subclass_id, class_id}), 'DELETE_SPECIALIZATION_CLASS'))
+      })
+      .catch(err => console.error(err))
+  }
   function getStatusMissions(){
     axios
       .get(`${firebaseConfig.databaseURL}/configurations/status_mission.json`)

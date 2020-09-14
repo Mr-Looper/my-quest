@@ -39,7 +39,7 @@ const ListClasses = (props) => {
     const indexClass = _list.findIndex(_class => _class.id === class_id)
     const indexSpec = _list[indexClass].specialization.findIndex(_subclass => _subclass.id === subclass_id)
     delete _list[indexClass].specialization[indexSpec].editSpec
-    // _list[indexClass].specialization[indexSpec].name = currentSpec
+    _list[indexClass].specialization[indexSpec].name = currentSpec
     if(_list[indexClass].specialization[indexSpec].id){
       api.updateSpecializationClass(class_id, subclass_id, {..._list[indexClass].specialization[indexSpec], name: currentSpec})
     }else{
@@ -56,10 +56,8 @@ const ListClasses = (props) => {
     setListClasses(_list)
     setDisableAdd(true)
   }
-  const handleRemoveSpecialization = (indexClass, _id) => {
-    const _list = [...listClasses]
-    _list[indexClass].specialization = _list[indexClass].specialization.filter(_spec => _spec.id !== _id)
-    setListClasses(_list)
+  const handleRemoveSpecialization = (class_id, subclassid) => {
+    api.deleteSpecializationClass(class_id, subclassid)
   }
 
   // useEffect(() => {
@@ -103,7 +101,7 @@ const ListClasses = (props) => {
                         onClick={() => handleEditSpecialization(key, index)}
                         >✎</span>
                         <span className="cursor--pointer"
-                        onClick={() => handleRemoveSpecialization(key, _spec.id)}
+                        onClick={() => handleRemoveSpecialization(_myClass.id, _spec.id)}
                         ><i className="nes-icon close icon-red is-small-1_5" style={{top: '10px'}}></i></span>
                       </span>
                       }

@@ -106,7 +106,6 @@ function formatMissionsData(missions){
 }
 
 function updateSpecializationClass(specializations, class_id, list){
-  console.log(specializations, class_id, list)
   let _list = [...list]
   const index = _list.findIndex(_class => _class.id === class_id )
   specializations.map(_spec => {
@@ -128,6 +127,13 @@ function updateSpecializationClass(specializations, class_id, list){
   return _list
 }
 
+function deleteSpecializationClass(class_id, subclass_id, list){
+  let _list = [...list]
+  const indexClass = _list.findIndex(_class => _class.id === class_id)
+  _list[indexClass].specialization = _list[indexClass].specialization.filter(_spec => _spec.id !== subclass_id)
+  return _list
+}
+
 
 function myData(state = {}, action) {
   switch (action.type) {
@@ -144,6 +150,8 @@ function myClasses(state = {}, action) {
       return formatClassesData({ ...action.data })
     case 'UPDATE_SPECIALIZATION_CLASS':
       return updateSpecializationClass(action.data.list, action.data.class_id, [...state])
+    case 'DELETE_SPECIALIZATION_CLASS':
+      return deleteSpecializationClass(action.data.class_id, action.data.subclass_id, [...state])
     default:
       return state
   }
