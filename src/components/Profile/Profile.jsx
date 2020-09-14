@@ -46,18 +46,18 @@ const Profile = ({ state }) => {
     //   sections.specializedTitles = myTitles.filter(title => !title.permanent)
     // }
   }, [myData, myMissions, mySkills])
-  const listSkills =  skills && skills.length > 0 ? 
-    (<ListSkills skills={skills} mainClass={user.class_id} enableShowModal={true}
-      // callbackShowDetails={(position) => handleShowDetails(position)}
-      >
-    </ListSkills>) : ''
   return (
     <div className="profile-card is-dark main-card">
       <div className="nes-container is-dark with-title">
         <p className="title">User data</p>
         <Userdata userdata={user}></Userdata>
         <div className="profile-main-class">
-        {listSkills}
+        {skills && skills.length > 0 ? 
+          (<ListSkills skills={skills} mainClass={user.class_id} enableShowModal={true}
+            // callbackShowDetails={(position) => handleShowDetails(position)}
+            >
+          </ListSkills>) : ''
+        }
         </div>
         {/* {listSections.map((section, index) => 
           sections[`${section.prop}`] && sections[`${section.prop}`].length > 0 ?

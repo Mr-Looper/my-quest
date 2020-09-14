@@ -13,9 +13,6 @@ import { hideModal } from '../../actions'
 import { FirebaseContext } from '../../services/firebaseService'
 import './ModalNewMission.css'
 
-const handleSetNextStep = (type) => {
-      return type
-}
 const specialTitleInfo = 'When you create a "Special title", it will be repeatable by force and it will be lost when you don\'t complete the mission. You can always complete  and retrieve it if you don\'t end the mission.'
 
 const ModalNewMission = (props) => {
@@ -23,10 +20,10 @@ const ModalNewMission = (props) => {
   const { mySkills, myClasses, typeMissions } = props.state
   const { title, layer, initialData } = props
   const [listSkills, ] = useState(mySkills? mySkills.map(_skill => { return { text: _skill.name, value: _skill.id, class: _skill.class, parentElement: [_skill.class_id] } }) : [])
-  const [listClasses, setListClasses] = useState(myClasses? myClasses.map(_class => { return { text: _class.name, value: _class.id, class: _class.class } }) : [])
+  const [listClasses, setListClasses] = useState(myClasses? myClasses.map(_class => { return { text: _class.name, value: _class.id, color: _class.color } }) : [])
   const [steps, setSteps] = useState([initialData.startFrom])
   const [currentStep, setCurrentStep] = useState(initialData.startFrom)
-  const [toStep, setToStep] = useState(handleSetNextStep(initialData.type? initialData.type : ''))
+  const [toStep, setToStep] = useState(initialData.type? initialData.type : '')
   const [dataMission, setDataMission] = useState(
     {
       status_id: 0,
@@ -35,14 +32,20 @@ const ModalNewMission = (props) => {
       difficulty: (initialData.difficulty? initialData.difficulty : 5),
     ...initialData
   })
-  const [enableNextStep, setEnableNextStep] = useState(currentStep === 'mission')
+  const [enableNextStep, setEnableNextStep] = useState(initialData.type? initialData.type : '')
+
   const handleDefineMission = (data) => {
     let _dataMission = {...dataMission}
     _dataMission.difficulty = data.difficulty
     _dataMission.type = data.type
     _dataMission.data = data.data
+    const booleanNextStep = _dataMission.data.name !== '' && _dataMission.data.description !== '' && _dataMission.type !== '' && _dataMission.data.color !== ''
     setDataMission(_dataMission)
-    setToStep(handleSetNextStep(data.type))
+    console.log(_dataMission)
+    setEnableNextStep(booleanNextStep)
+    if(booleanNextStep){
+      setToStep(_dataMission.type)
+    }
   }
   const handleSetDataText = (data, element) => {
     let _dataMission = {...dataMission}
@@ -57,7 +60,9 @@ const ModalNewMission = (props) => {
   }
   const handleSetGainXpClass = (list) => {
     let _dataMission = {...dataMission}
-    _dataMission['classes_xp'] = list
+    _dataMission.class = {
+      id: list.map(_class => (_class))
+    }
     setDataMission(_dataMission)
     setEnableNextStep(list.length > 0)
     if(enableNextStep){
@@ -66,13 +71,13 @@ const ModalNewMission = (props) => {
   }
   const handleSetGainXpSkill = (list) => {
     let _dataMission = {...dataMission}
-    _dataMission['skills'] = list.map(_skill => ({ id: _skill }))
+    _dataMission['skill'] = list.map(_skill => ({ id: _skill }))
     //Según las skills marcadas, busco las ids de clases padre
     const classes = [...new Set((list.map(_skill => {
       const currentSkill = listSkills.filter(_currentSkill => _currentSkill.value === _skill)[0]
       return myClasses.filter(_class =>{
           return currentSkill && currentSkill.parentElement && currentSkill.parentElement.findIndex(_subClass => _subClass === _class.id) !== -1
-        }).map(_class => ({ text: _class.name, value: _class.id, class: _class.class }))
+        }).map(_class => ({ text: _class.name, value: _class.id, color: _class.color }))
       })
     ).flat())]
     setListClasses(classes)
@@ -151,7 +156,7 @@ const ModalNewMission = (props) => {
       handleSetGainXpSkill((_dataMission.skill? _dataMission.skill : []))
     }
     if(toStep === 'class_xp'){
-      handleSetGainXpClass((_dataMission.classes_xp? _dataMission.classes_xp : []))
+      handleSetGainXpClass((_dataMission.classes_xp? _dataMission.classes_xp : [{ id: '' }]))
     }
     if(toStep === 'conditions'){
       handleSetConditions((_dataMission.conditions? _dataMission.conditions : [{text:'', withProgress: false, from: 0, to: 1}]))
@@ -206,7 +211,6 @@ const ModalNewMission = (props) => {
             <StepCheckElements title="Select skill" list={listSkills} 
             selected={dataMission.skill_level? dataMission.skill_level.name : ''}
             callbackCheckElements={(data) => handleSetSkillLevel({id: data, level: dataMission.skill_level.level})}
-            // callbackCheckElements={(skills) => handleSetGainXpSkill(skills)}
             >
             </StepCheckElements>
           </div>
@@ -215,7 +219,7 @@ const ModalNewMission = (props) => {
         
         {currentStep === 'skill_xp' && listSkills? 
           <div>
-            <StepCheckElements typeSelector="radio" title="Skills list" list={listSkills} selected={dataMission.skills_xp}
+            <StepCheckElements typeSelector="radio" title="Skills list" list={listSkills} selected={dataMission.skill.id}
             // callbackCheckElements={(data) => handleSetSkillLevel({id: data, level: dataMission.skill_level.level})}
             callbackCheckElements={(skills) => handleSetGainXpSkill(skills)}
             >
@@ -242,7 +246,7 @@ const ModalNewMission = (props) => {
         <div className="footer-modal">
           {currentStep !== initialData.startFrom? <button className="nes-btn is-default prev-step" onClick={() => handlePrevStep()}>Prev step</button> : ''}
           {currentStep !== 'resume' && enableNextStep? <button className="nes-btn is-default next-step" onClick={() => handleNextStep()}>Next step</button> : '' }
-          {currentStep === 'resume' && enableNextStep? <button className="nes-btn is-success finish-step" onClick={() => handleCreateMission()}>Next step</button> : '' }
+          {currentStep === 'resume' && enableNextStep? <button className="nes-btn is-success next-step" onClick={() => handleCreateMission()}>Create</button> : '' }
         </div>
       </Modal>
     </div>

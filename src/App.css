@@ -77,6 +77,7 @@ html, body, pre, code, kbd, samp {
 }
 .container-sub-skill{
   display: inline-block;
+  background-color: transparent !important;
 }
 
 .is-dark{

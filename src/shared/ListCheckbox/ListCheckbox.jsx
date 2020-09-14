@@ -16,7 +16,7 @@ const ListCheckbox = (props) => {
   return (
     <div className={props.mainClass}>
       { props.list.map((checkbox, index) => 
-        <label key={index} className={`nes-text-forced is-${checkbox.class}`}>
+        <label key={index} className={`nes-text-forced is-${checkbox.color}`}>
           <input type={props.typeSelector} className={`nes-${props.typeSelector} is-dark`} 
           value={
             props.typeSelector === 'checkbox'? 

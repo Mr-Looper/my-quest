@@ -3,6 +3,7 @@ import ListCheckbox from '../../ListCheckbox/ListCheckbox'
 
 const StepCheckElements = (props) => {
   const [list, setList] = useState(props.list)
+  console.log(props.list)
   const [search, setSearch] = useState('')
   const [selected, setSelected] = useState(props.selected)
   const handleSetOption = (options) => {

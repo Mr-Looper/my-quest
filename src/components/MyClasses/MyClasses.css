@@ -22,6 +22,7 @@
   width: 100%;
   float: left;
   margin-bottom: 15px;
+  margin-top: 15px;
 }
 .my-class-specializations button{
   margin: 0 auto;
@@ -30,13 +31,28 @@
 .list-classes li{
   width: 350px;
   float: left;
-  line-height: 40px;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  /* line-height: 40px; */
 }
 
+.list-classes li .section-buttons span.edit-text{
+  padding-left: 10px;
+  padding-right: 10px;
+  top: -10px;
+  position: relative;
+}
+
+.list-classes li .section-buttons span.delete-text{
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
 .list-classes li .section-text{
-  width: 30%;
-  float: right;
+  margin: auto;
+  width: calc(100% - 77px) !important;
+  float: left;
 }
 .list-classes li .nes-field{
   line-height: initial;
@@ -44,7 +60,8 @@
 }
 
 .list-classes li .section-buttons{
-  /* width: 30%; */
+  width: 77px;
+  margin: auto;
   float: right;
 }
 

@@ -87,22 +87,22 @@ const ListClasses = (props) => {
                         <input type="text" className="nes-input is-dark" value={currentSpec} onChange={(e) => handleSetSpecialization(e.target.value)}/>
                       </div> 
                       :
-                      <span>{_spec.name}</span>
+                      <span className="section-text">{_spec.name}</span>
                     }
                     {_spec.editSpec?
                       <span className="section-buttons">
-                        <span className="cursor--pointer nes-text-forced is-success font-size--25px" style={{paddingLeft: '10px', paddingRight: '10px'}}
+                        <span className="cursor--pointer nes-text-forced is-success font-size--25px edit-text"
                         onClick={() => handleSaveSpecialization(_myClass.id, _spec.id)}
                         >✔</span>
                       </span>
                       : 
                       <span className="section-buttons">
-                        <span className="cursor--pointer nes-text-forced is-success font-size--25px" style={{paddingLeft: '10px', paddingRight: '10px'}}
+                        <span className="cursor--pointer nes-text-forced is-success font-size--25px edit-text"
                         onClick={() => handleEditSpecialization(key, index)}
                         >✎</span>
                         <span className="cursor--pointer"
                         onClick={() => handleRemoveSpecialization(_myClass.id, _spec.id)}
-                        ><i className="nes-icon close icon-red is-small-1_5" style={{top: '10px'}}></i></span>
+                        ><i className="nes-icon close icon-red is-small-1_5"></i></span>
                       </span>
                       }
                   </li>

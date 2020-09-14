@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const _showNameColoredByListIds = (listIds, list) => {
-  const newList = list.filter(_skill => listIds.findIndex(_id => _id === _skill.id) !== -1)
-  return newList.length > 0? newList.map((_skill, index) => 
-    <span key={index} className={`nes-text-forced is-${_skill.color}`}>[{_skill.name}]</span>
+  const newList = list.filter(_element => listIds.findIndex(_id => _id === _element.id) !== -1)
+  return newList.length > 0? newList.map((_element, index) => 
+    <span key={index} className={`nes-text-forced is-${_element.color}`}>[{_element.name}]</span>
   ) : <span className={`nes-text is-default`}>Not assigned</span>
 }
 
@@ -56,8 +56,8 @@ const InfoMission = (props) => {
           {dataMission.type === 'skill_xp' && dataMission.skill? 
             <span>Skill XP: <span>{_showNameColoredByListIds([].concat(dataMission.skill.id), mySkills)}</span></span>
             : ''}
-          {dataMission.type === 'class_xp' && dataMission.classes_xp? 
-            <span>Class XP: <span>{_showNameColoredByListIds([].concat(dataMission.classes_xp), myClasses)}</span></span>
+          {dataMission.type === 'class_xp' && dataMission.class? 
+            <span>Class XP: <span>{_showNameColoredByListIds([].concat(dataMission.class.id), myClasses)}</span></span>
             : ''}
           {dataMission.type === 'new_skill' && dataMission.skill? 
             <span>Skill "<span className={`nes-text-forced is-${dataMission.skill.color}`}>{dataMission.skill.name}</span>". {dataMission.skill.description}</span>

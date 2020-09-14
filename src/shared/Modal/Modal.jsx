@@ -9,7 +9,7 @@ const Modal = (props) => {
   const style = { zIndex: layer }
   let footer = '', btnSave = '', btnCancel = '', btnClose = ''
   const dispatch = useDispatch()
-  const handleClickSave = (e) => {
+  const handleClickSave = () => {
     props.callbackSaveModal()
   }
   const handleClickCancel = (e) => {
@@ -17,7 +17,7 @@ const Modal = (props) => {
   }
   
   if(save){
-    btnSave = <button className="nes-btn is-success" onClick={handleClickSave.bind(this)}>{save}</button>
+    btnSave = <button className="nes-btn is-success" onClick={() => handleClickSave()}>{save}</button>
   }
   if(close){
     btnClose = <button className="nes-btn is-default" onClick={() => dispatch(hideModal())}>{close}</button>

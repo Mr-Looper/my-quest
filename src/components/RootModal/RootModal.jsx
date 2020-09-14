@@ -19,7 +19,6 @@ let currentModals = []
 
 const ModalRoot = ({ modalType, modalProps, action }) => {
   if(action === 'SHOW'){
-    console.log(modalProps)
     modalProps.key = currentModals.length
     modalProps.layer = currentModals.length + baseLayer
     currentModals = currentModals.concat({ modalType, modalProps })

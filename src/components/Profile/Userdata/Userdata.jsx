@@ -7,7 +7,8 @@ const Userdata = (props) => {
   const { userdata } = props
   return (
     <div className="profile-userdata">
-      <MyInfo info={userdata}>{userdata.progress? <Progress info={userdata.progress}/> : ''}</MyInfo>
+      <MyInfo info={userdata}></MyInfo>
+      {userdata.progress? <Progress info={userdata.progress}/> : ''}
     </div>
   )
 }

@@ -15,7 +15,6 @@ const MyInfo = ({ info, children }) => {
         <h4 className="level-label">LVL</h4>
         <h1 className="level-number">28</h1>
       </div>
-      {children}
     </div>
   )
 }

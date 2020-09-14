@@ -31,7 +31,7 @@ const ModalNewClass = (props) => {
       <Modal title={title} layer={layer}
       callbackCloseModal={() => dispatch(hideModal('MODAL_NEW_CLASS'))}
       callbackSaveModal={() => handleSaveNewClass()}
-      close="Close" save="Save">
+      close="Close" save={props.save}>
         <div className="nes-field">
           <label htmlFor="name_field">Your name</label>
           <input type="text" id="name_field" className="nes-input" value={newClass} onChange={(e) => setNewClass(e.target.value)}></input>
